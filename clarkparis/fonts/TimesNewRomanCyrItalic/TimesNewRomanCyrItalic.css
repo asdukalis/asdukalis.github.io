@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'TimesNewRomanCyrItalic';
+    src: url('fonts/TimesNewRomanCyrItalic.eot');
+    src: url('fonts/TimesNewRomanCyrItalic.eot') format('embedded-opentype'),
+         url('fonts/TimesNewRomanCyrItalic.woff2') format('woff2'),
+         url('fonts/TimesNewRomanCyrItalic.woff') format('woff'),
+         url('fonts/TimesNewRomanCyrItalic.ttf') format('truetype'),
+         url('fonts/TimesNewRomanCyrItalic.svg#TimesNewRomanCyrItalic') format('svg');
+}
