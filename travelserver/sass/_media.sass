@@ -1,0 +1,76 @@
+// Адаптив для сайта
+@media (max-width:768px)
+	html
+			font-size: 5px
+	.top_nav
+			&-btn
+					display: block
+			&_menu
+					flex-direction: column
+					display: none
+					li
+							line-height: 25px
+							a
+									&::after
+											display: none
+					&-act
+						display: flex
+						margin-bottom: 0
+	.left-sidebar
+			&-btn
+					display: block
+			&-menu
+					display: none
+					&-act
+							display: block
+			&-object
+					display: none
+	.copy
+			text-align: center
+	small
+			display: block
+			margin: 36px auto
+	.footer
+			&-contacts
+					text-align: left
+	.team
+			text-align: center
+			h2
+					text-align: left
+
+@media (min-width:769px) and (max-width:991px)
+	html
+			font-size: 5px
+	.top_nav
+			&-btn
+					display: block
+			&_menu
+					display: none
+					li
+							margin: 0
+							a
+									&::after
+											display: none
+					&-act
+						display: flex
+						margin-bottom: 0
+						justify-content: space-around
+	.left-sidebar
+			&-object
+					display: none
+			&-btn
+					display: block
+			&-menu
+					display: none
+					&-act
+							display: block
+			&-object
+					display: none
+	.footer
+			&-contacts
+					text-align: left
+
+@media (max-width:1200px)
+	.top_nav_menu
+				li
+						margin-right: 15px
