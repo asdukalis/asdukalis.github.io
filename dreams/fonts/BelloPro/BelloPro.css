@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'BelloPro';
+    src: url('fonts/BelloPro.eot');
+    src: url('fonts/BelloPro.eot') format('embedded-opentype'),
+         url('fonts/BelloPro.woff2') format('woff2'),
+         url('fonts/BelloPro.woff') format('woff'),
+         url('fonts/BelloPro.ttf') format('truetype'),
+         url('fonts/BelloPro.svg#BelloPro') format('svg');
+}

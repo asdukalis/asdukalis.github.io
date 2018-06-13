@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'MolleRegular';
+    src: url('fonts/MolleRegular.eot');
+    src: url('fonts/MolleRegular.eot') format('embedded-opentype'),
+         url('fonts/MolleRegular.woff2') format('woff2'),
+         url('fonts/MolleRegular.woff') format('woff'),
+         url('fonts/MolleRegular.ttf') format('truetype'),
+         url('fonts/MolleRegular.svg#MolleRegular') format('svg');
+}

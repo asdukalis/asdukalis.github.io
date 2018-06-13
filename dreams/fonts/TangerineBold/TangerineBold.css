@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'TangerineBold';
+    src: url('fonts/TangerineBold.eot');
+    src: url('fonts/TangerineBold.eot') format('embedded-opentype'),
+         url('fonts/TangerineBold.woff2') format('woff2'),
+         url('fonts/TangerineBold.woff') format('woff'),
+         url('fonts/TangerineBold.ttf') format('truetype'),
+         url('fonts/TangerineBold.svg#TangerineBold') format('svg');
+}
