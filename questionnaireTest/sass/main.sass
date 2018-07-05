@@ -1,0 +1,233 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $font-R
+	overflow-x: hidden
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+::selection
+	background-color: $hoverCheckbox
+	color: #fff
+
+.topLine
+	line-height: 80px
+	border-bottom: 2px solid #d9d9d9
+
+.menu
+	ul
+		margin: 0
+		padding: 0
+		a
+			color: #494949
+			font-size: 14px
+			margin-right: 50px
+			text-transform: uppercase
+			&:hover
+				color: $a
+		li
+			display: inline-block
+			list-style-type: none
+			
+.active
+	color: $a
+
+.main_bg
+	width: auto
+	height: 200px
+	position: relative
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: top
+
+.gradient
+	position: absolute
+	display: grid
+	align-items: stretch
+	justify-content: center
+	width: 100%
+	height: 200px
+	background: -moz-linear-gradient(bottom, $white 0%, transparent 100%)
+	background: -webkit-gradient(left bottom, left top, color-stop(0%, $white), color-stop(100%, transparent))
+	background: -webkit-linear-gradient(bottom, $white 0%, transparent 100%)
+	background: -o-linear-gradient(bottom, $white 0%, transparent 100%)
+	background: -ms-linear-gradient(bottom, $white 0%, transparent 100%)
+	background: linear-gradient(to top, $white 0%, transparent 100%)
+
+.h1
+	color: #000
+	font-family: $font-RT
+	font-size: 70px
+	font-weight: 100
+	align-self: end
+	margin: 0
+	padding: 0
+	width: 100%
+	z-index: 50
+
+// section personalInfor
+.image
+	width: 45px
+	border-radius: 10em
+	margin: 70px auto 0px
+	padding: 0
+
+.h2
+	color: #000
+	font-family: $font-R
+	font-size: 24px
+	font-weight: 300
+	margin: 20px auto 55px
+	vertical-align: bottom
+	text-align: center
+
+@mixin placeholder-color($placeholder) 
+	&::-webkit-input-placeholder
+		color: $placeholder
+	&:-moz-placeholder 
+		color: $placeholder
+	&::-moz-placeholder  
+		color: $placeholder
+	&:-ms-input-placeholder
+		color: $placeholder
+  
+.info 
+	display: grid
+	grid-template-columns: 1fr
+	.select
+		&:focus
+			color: $accent
+			border: 1px solid $accent
+
+.items
+	width: 520px
+	margin: 20px auto
+	text-align: center
+	padding: 20px
+	font-family: $font-R
+	font-weight: 400
+	border-radius: 5px
+	border: 1px solid $placeholder
+	box-shadow: none
+	&:focus
+		color: $dark
+		border: 1px solid $accent
+
+.item-02
+	width: 320px
+	&::after
+		content: '' 
+		position: absolute
+		right: -30px
+		top: 15px
+		border: 10px solid transparent
+		border-left: 20px solid green 
+
+.calc-programms
+	display: grid
+	grid-template-columns: repeat(3, 1fr)
+	align-items: center
+	justify-items: center
+	&-checkbox
+		justify-self: start
+		label
+			display: inline-block
+			margin-bottom: 20px
+			font-size: 16px
+			&:hover
+				cursor: pointer
+			&::before
+				content: ""
+				display: inline-block
+				vertical-align: middle
+				width: 24px
+				height: 24px
+				box-shadow: 0 5px 10px rgba(0, 0, 1, 0.1)
+				margin-right: 10px
+				background-color: $white
+				border: 1px solid $accent
+				border-radius: 3px
+				transition: all 0.2s
+		input[type="checkbox"]
+			display: none
+			&:checked
+				&+label::before
+					content: url(../img/galka.png)
+					line-height: 20px
+					background-color: $accent
+					margin-right: 10px
+
+.aboutMe
+	.h2
+		margin-bottom: 25px
+	p
+		margin-bottom: 30px
+	textarea
+		color: $dark
+		font-size: 20px
+		padding: 15px 0 0 15px
+
+.btn
+	margin-top: 70px
+	background-color: $accent
+	padding: 10px 32px
+	color: $white
+	font-weight: 300
+	border-radius: 10px
+	border: none
+	transition: 
+	&:hover
+		background-color: rgba($accent, 0.9)
+		-webkit-transition: all 0.25s
+		-moz-transition: all 0.25s
+		-o-transition: all 0.25s
+		transition: all 0.25s
+
+@import "media" // Всегда в конце

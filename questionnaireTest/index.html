@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Анкета</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- <meta property="og:image" content="path/to/image.jpg">
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png"> -->
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+	<link rel="stylesheet" href="css/main.min.css">
+
+</head>
+
+<body>
+
+	<header class="header">
+
+		<div class="topLine text-center">
+			<nav class="menu">
+				<ul>
+					<a href="#personalInfor">
+						<li class=" active">Личная информация</li>
+					</a>
+					<a href="#experience">
+						<li>Опыт</li>
+					</a>
+					<a href="#about">
+						<li>О себе</li>
+					</a>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="main_bg" style="background-image: url(img/ian-froome-375650.jpg)">
+			<div class="gradient">
+				<h1 class="h1">Анкета</h1>
+			</div>
+		</div>
+
+	</header>
+
+	<section id="personalInfor" class="infor">
+
+		<div class="text-center">
+
+			<img class="image" src="img/book.png" alt="ФИО">
+			<h2 class="h2">Личная информация</h2>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="info">
+							<input class="items item-01" type="text" placeholder="ФИО">
+							<select name="yearpicker" id="yearpicker" class="items item-02" type="text" placeholder="Год рождения">Год рождения</select>
+							<input class="items item-03" type="text" placeholder="Место проживания">
+							<input class="items item-04" type="text" placeholder="Skype">
+							<input class="items item-05" type="text" placeholder="E-mail">
+						</div>
+					</div>
+				</div>
+			</div>			
+
+		</div>
+
+	</section>
+
+<section id="experience" class="myExperience text-center">
+
+		<img class="image" src="img/list.png" alt="ФИО">
+		<h2 class="h2">Расскажите о своем опыте работы</h2>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+
+					<div class="calc-programms">
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" checked name="programms" id="first">
+							<label for="first">
+								<span>БЭМ/ООCSS</span>
+							</label>
+						</div>
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" name="programms" id="second">
+							<label for="second">
+								<span>Stylus/LESS/SASS</span>
+							</label>
+						</div>
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" name="programms" id="third">
+							<label for="third">
+								<span>Работаю с SVG</span>
+							</label>
+						</div>
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" name="programms" id="fourth">
+							<label for="fourth">
+								<span>Верстаю семантично</span>
+							</label>
+						</div>
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" name="programms" id="fifth">
+							<label for="fifth">
+								<span>ES2015/ES2016</span>
+							</label>
+						</div>
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" name="programms" id="sixth">
+							<label for="sixth">
+								<span>Gulp/GRUNT</span>
+							</label>
+						</div>
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" name="programms" id="seventh">
+							<label for="seventh">
+								<span>Webpak</span>
+							</label>
+						</div>
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" name="programms" id="eighth">
+							<label for="eighth">
+								<span>jQuery</span>
+							</label>
+						</div>
+
+						<div class="calc-programms-checkbox">
+							<input type="checkbox" name="programms" id="ninth">
+							<label for="ninth">
+								<span>Использую Git</span>
+							</label>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</section>
+
+	<section id="about" class="aboutMe text-center">
+
+		<img class="image" src="img//myinfo.png" alt="ФИО">
+		<h2 class="h2">Расскажите о себе</h2>
+		<p>Напишите несколько предложений, чем привлекла наша вакансия <br>и что вы ожидаете от работы у нас.</p>
+
+		<textarea name="mytext" cols="60" rows="5" placeholder="Понравилась тем, что..."></textarea>
+
+		<p>
+			<input class="btn" type="submit" value="Готово">
+		</p>
+	</section>
+
+	<script src="js/scripts.min.js"></script>
+
+</body>
+</html>
