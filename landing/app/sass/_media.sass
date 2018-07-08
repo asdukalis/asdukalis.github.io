@@ -1,0 +1,146 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	.top_nav_menu
+		li
+			margin-right: 15px
+	.left-sidebar
+		.fixed 
+			min-width: 292px
+	.wrapper
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	html
+		font-size: 5px
+		.top_nav
+			&-btn
+				display: block
+			&_menu
+				display: none
+				li
+					margin: 0
+					a
+						&::after
+							display: none
+				&-act
+					display: flex
+					margin-bottom: 0
+					justify-content: space-around
+		.left-sidebar
+			position: relative
+			&-object
+				display: none
+			&-btn
+				display: block
+			&-menu
+				display: none
+				&-act
+					display: block
+			&-object
+				display: none
+		.footer
+			&-contacts
+				text-align: left
+	.wrapper
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+	html
+		font-size: 5px
+		.top_nav
+			&-btn
+				display: block
+			&_menu
+				flex-direction: column
+				display: none
+				li
+					line-height: 25px
+					a
+						&::after
+							display: none
+				&-act
+					display: flex
+					margin-bottom: 0
+		.left-sidebar
+			&-btn
+				display: block
+			&-menu
+				display: none
+				&-act
+					display: block
+			&-object
+				display: none
+		.copy
+			text-align: center
+		small
+			display: block
+			margin: 36px auto
+		.footer
+			&-contacts
+				text-align: left
+		.team
+			text-align: center
+			h2
+				text-align: left
+	.footer
+		padding: 25px
+		text-align: center
+		font-size: 12px
+		.foter-wrap-item
+			margin-bottom: 20px
+		.footer-menu
+			ul
+				li
+					margin-right: 5px
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	.wrapper
+		grid-template-columns: 1fr
+	.footer
+		padding: 25px
+		text-align: center
+		font-size: 10px
+		.foter-wrap-item
+			margin-bottom: 20px
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	/**/
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	/**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+
