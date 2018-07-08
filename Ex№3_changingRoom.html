@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Подбор переговорной</title>
+
+</head>
+<body>
+	<h1>Вам необходима эта переговорная: </h1>
+	
+	<script>
+		var proj = prompt("Нужен ли проектор yes/no");
+		var mark = prompt("Нужна ли маркерная доска yes/no");
+		var hym = prompt("Введите количество людей в группе 1-8, чел");
+
+		// 1 - Aztec, 2 - Navajo, 3 - Cherokee
+
+		function Prog() {
+
+			if( proj!="yes" && mark!="yes") {
+				if (hym <= 4){
+					document.write("Cherokee");
+				} else if (hym <= 6){
+					document.write("Navajo");
+				} else if(hym <= 8){
+					document.write("Aztec");
+				}
+			} else if (proj!="yes" && mark=="yes") {
+					if(hym <= 6) {
+						document.write("Navajo");
+					} else {
+						document.write("Aztec");
+					}
+			}	else {
+				document.write("Aztec");
+			}
+		}
+
+		Prog();
+
+	</script>
+	
+</body>
+</html>
