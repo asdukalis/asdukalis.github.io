@@ -1,0 +1,130 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+::selection
+	background-color: $accent
+	color: #fff
+
+.panel
+	margin-top: 30px
+	padding: 30px
+	text-align: center
+	background: $gray
+	border-radius: 5px
+	h3
+		margin: 0 0 20px 0
+.chang
+	&-lang
+		display: flex
+		&-radio
+			flex-basis: 50%
+			label
+				display: inline-block
+				margin-bottom: 20px
+				small
+					display: block
+					margin-left: 28px
+					opacity: 0.5
+					font-size: 10px
+				&:hover
+					cursor: pointer
+				&::before
+					content: ""
+					display: inline-block
+					vertical-align: middle
+					width: 24px
+					height: 24px
+					box-shadow: 0 5px 10px rgba(0, 0, 1, 0.1)
+					background-color: $white
+					border: 5px solid $white
+					border-radius: 50%
+					transition: all 0.2s
+		input[type="radio"]
+			display: none
+			&:checked
+				&+label::before
+					background-color: $accent
+					border: 5px solid $white
+		&-popular
+			padding: 0 5px
+			margin-left: 16px
+			height: 25px
+			color: $white
+			display: flex
+			justify-content: center
+			align-items: center
+			font-size: 10px
+			text-transform: uppercase
+			background-color: $accent
+			position: relative
+			&::before
+				content: ""
+				position: absolute
+				width: 6px
+				height: 12px
+				border: 6px solid transparent
+				border-right: 6px solid $accent
+				left: -11px
+				top: 50%
+				margin-top: -6px
+button
+	margin: 15px									
+.num_converted
+	border-radius: 10px
+	padding: 10px
+	background-color: lightgreen
+
+	
+@import "media" // Всегда в конце
