@@ -1,7 +1,64 @@
+    // protocol Language {
+    // var LESS_THAN_TWENTY: [String]
+    // var TENTHS_LESS_THAN_HUNDRED: [String]
+    // }
 
 	$(document).ready(function() {
     // СТАРТ
-   
+// /////////////////////////variabels
+    var TEN = 10;
+    var ONE_HUNDRED = 100;
+    var ONE_THOUSAND = 1000;
+    var ONE_MILLION = 1000000;
+    var ONE_BILLION = 1000000000;
+    var ONE_TRILLION = 1000000000000;
+    var ONE_QUADRILLION = 1000000000000000;
+
+    var numerals = {
+      ukr:{
+        THOUS: [" тисяч ", " тисячa ", " тисячi "],
+        MILL: [" мільйонів ", " мільйон ", " мільйона "],
+        BILL: [" мільярдів ", " мільярд ", " мільярда "],
+        TRILL: [" трильйонів ", " трильйон ", " трильйона "],
+        EXEPT: ["нуль", "одна", "двi"],
+        LESS_THAN_TWENTY: ["нуль", "один", "два", "три", "чотири", "п'ять", "шість", "сім", "вісім", "дев'ять", "десять", "одинадцять", "дванадцять", "тринадцять", "чотирнадцять", "п'ятнадцять", "шістнадцять", "сімнадцять", "вісімнадцять", "дев'ятнадцять"],
+        TENTHS_LESS_THAN_HUNDRED: ["", "десять", "двадцять", "тридцять", "сорок", "п'ятдесят", "шістдесят", "сімдесят", "вісімдесят", "дев'яносто"],
+        TENTHS_LESS_THAN_THOUSAND: ["", "сто", "двісті", "триста", "чотириста", "п'ятсот", "шістсот", "сімсот", "вісімсот", "дев'ятьсот"]
+      },
+      eng:{
+        LESS_THAN_TWENTY: ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"],
+        TENTHS_LESS_THAN_HUNDRED: ["zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+      },
+      det:{
+        EXEPT: ["null", "ein", "eine"],
+        LESS_THAN_TWENTY: ["null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"],
+        TENTHS_LESS_THAN_HUNDRED: ["null", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"]
+      }
+    };
+
+    var VAR_FOR_CHANGING = {
+      ukr: {
+        ENDS_WITH_TEEN_PATTERN: /надцять$/,
+        ENDS_WITH_Y_PATTERN: /сят$/,
+        ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN: /(нуль|одна|двi|три|чотири|п'ять|шість|сім|вісім|дев'ять|десять|сорок|двадцять|тридцять|девяносто|сто|тысяча|мільйон|мільярд|трильйон)$/,
+        ordinalLess: { "одна": "перший", "двi": "другий", "нуль": "нульовий", "один": "перший", "два": "другий", "три": "третій", "чотири": "четвертий", "п'ять": "п'ятьтий", "шість": "шостий", "сім": "сьомий", "вісім": "восьмий", "дев'ять": "дев'ятий", "десять": "десятий", "двадцять": "двадцятий", "тридцять": "тридцятий", "сорок": "сороковий", "дев'яносто": "дев'яностий", "сто": "сотий", "тысяча": "тысячний", "мільйон": "мiльйoний", "мільярд": "мільярдний", "трильйон": "трильйонний"},
+      },
+      eng: {
+        ENDS_WITH_DOUBLE_ZERO_PATTERN: /(hundred|thousand|(m|b|tr|quadr)illion)$/,
+        ENDS_WITH_TEEN_PATTERN: /teen$/,
+        ENDS_WITH_Y_PATTERN: /y$/,
+        ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN: /(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)$/,
+        ordinalLess: { "zero": "zeroth", "one": "first", "two": "second", "three": "third", "four": "fourth", "five": "fifth", "six": "sixth", "seven": "seventh", "eight": "eighth", "nine": "ninth", "ten": "tenth", "eleven": "eleventh", "twelve": "twelfth" },
+
+      },
+      det: {
+        ENDS_WITH_TEEN_PATTERN: /(null|zwei|vier|fünf|sechs|neun|zehn|elf|zwölf|dreizehn|vierzehn|fünfzehn|sechzehn|siebzehn|achtzehn|neunzehn)$/,
+        ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN: /(eins|drei|sieben|acht)$/,
+        ordinalLess: { "eins": "erste", "drei": "dritte", "sieben": "siebte", "acht": "achte" }
+      }
+    }
+
+    
       $("input[type='radio']").on("click", function() {
         $(".btn").on("click", function(event) {
           var get_num = $(".get_num").val();
@@ -32,67 +89,105 @@
           }
         });
 
-        if ($("#first").is(":checked")) {
-          // Ukrain
-          var ENDS_WITH_TEEN_PATTERN = /надцять$/;
-          var ENDS_WITH_Y_PATTERN = /сят$/;
-          var ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN = /(нуль|один|два|три|чотири|п'ять|шість|сім|вісім|дев'ять|десять|сорок|двадцять|тридцять|девяносто|сто|тысяча|мільйон|мільярд|трильйон)$/;
-          var ordinalLessThanThirteen = { одна: "перший", двi: "другий", нуль: "нульовий", один: "перший", два: "другий", три: "третій", чотири: "четвертий", "п'ять": "п'ятьтий", шість: "шостий", сім: "сьомий", вісім: "восьмий", "дев'ять": "дев'ятий", десять: "десятий", двадцять: "двадцятий", тридцять: "тридцятий", сорок: "сороковий", девяносто: "дев'яностий", сто: "сотий", тысяча: "тысячний", мільйон: "мiльйoний", мільярд: "мільярдний", трильйон: "трильйонний" };
+        //  Converts an integer into words.
+          //  If number is decimal, the decimals will be removed.
+        function toWords(number, asOrdinal) {
+          var words;
+          var num = parseInt(number, 10);
+          // var IndexNum = 1000;
+          // console.log(IndexNum);
+          words = generateWords(num);
+          return asOrdinal ? makeOrdinal(words) : words;
+        }
 
+        if ($("#first").is(":checked")) {
+          
           // Преобразует числовое слово в порядковое числовое слово
 
           function makeOrdinal(words) {
             // Ends with *00 (100, 1000, etc.) or *teen (13, 14, 15, 16, 17, 18, 19)
-            if (ENDS_WITH_TEEN_PATTERN.test(words)) {
-              return words.replace(ENDS_WITH_TEEN_PATTERN, "надцятий");
+            if (VAR_FOR_CHANGING.ukr.ENDS_WITH_TEEN_PATTERN.test(words)) {
+              return words.replace(VAR_FOR_CHANGING.ukr.ENDS_WITH_TEEN_PATTERN, "надцятий");
             }
             // Ends with (50, 60, 70, 80)
-            else if (ENDS_WITH_Y_PATTERN.test(words)) {
-              return words.replace(ENDS_WITH_Y_PATTERN, "сятий");
+            else if (VAR_FOR_CHANGING.ukr.ENDS_WITH_Y_PATTERN.test(words)) {
+              return words.replace(VAR_FOR_CHANGING.ukr.ENDS_WITH_Y_PATTERN, "сятий");
             }
             // Ends with 1 through 10
-            else if (ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN.test(words)) {
-              return words.replace(ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN, replaceWithOrdinalVariant);
+            else if (VAR_FOR_CHANGING.ukr.ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN.test(words)) {
+              return words.replace(VAR_FOR_CHANGING.ukr.ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN, replaceWithOrdinalVariant);
             }
             return words;
           }
 
           function replaceWithOrdinalVariant(match, numberWord) {
-            return ordinalLessThanThirteen[numberWord];
+            return VAR_FOR_CHANGING.ukr.ordinalLess[numberWord];
           }
 
-          var TEN = 10;
-          var ONE_HUNDRED = 100;
-          var ONE_THOUSAND = 1000;
-          var ONE_MILLION = 1000000;
-          var ONE_BILLION = 1000000000;
-          var ONE_TRILLION = 1000000000000;
-          var ONE_QUADRILLION = 1000000000000000;
-
-          var LESS_THAN_TWENTY = ["", "один", "два", "три", "чотири", "п'ять", "шість", "сім", "вісім", "дев'ять", "десять", "одинадцять", "дванадцять", "тринадцять", "чотирнадцять", "п'ятнадцять", "шістнадцять", "сімнадцять", "вісімнадцять", "дев'ятнадцять"];
-
-          var TENTHS_LESS_THAN_HUNDRED = ["", "десять", "двадцять", "тридцять", "сорок", "п'ятдесят", "шістдесят", "сімдесят", "вісімдесят", "девяносто"];
-
-          var TENTHS_LESS_THAN_THOUSAND = ["", "сто", "двісті", "триста", "чотириста", "п'ятсот", "шістсот", "сімсот", "вісімсот", "дев'ятьсот"];
-
-          //  Converts an integer into words.
-          //  If number is decimal, the decimals will be removed.
-
-          function toWords(number, asOrdinal) {
-            var words;
-            var num = parseInt(number, 10);
-            words = generateWords(num);
-            return asOrdinal ? makeOrdinal(words) : words;
-          }
-
-          function generateWords(number) {
-            var remainder,
-              word,
+            function generateWords(number) {
+            var remainder, word, lastCharr, 
               words = arguments[1];
+
+            var thousFunc = function (number){
+              if (lastCharr > 20) {
+                lastCharr = Math.floor(number / ONE_THOUSAND) % 10;
+                word = (lastCharr > 4 || lastCharr == 0) ? word:                    
+                  (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) ? word:
+                  (lastCharr == 2) ? numerals.ukr.EXEPT[lastCharr]:
+                  (lastCharr == 1) ? word: "";
+              }
+              word = ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) ? word + numerals.ukr.THOUS[0]:                      
+                  (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) ? word + numerals.ukr.THOUS[2]:
+                  (lastCharr == 2) ? numerals.ukr.EXEPT[lastCharr]:
+                  (lastCharr == 1) ? word + numerals.ukr.THOUS[lastCharr]: ""; 
+                  return word;     
+            }
+            var millFunc = function (number){
+              if (lastCharr > 20) {
+                lastCharr = Math.floor(number / ONE_MILLION) % 10;
+                word = (lastCharr > 4 || lastCharr == 0) ? word:                    
+                  (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) ? word:
+                  (lastCharr == 2) ? word:
+                  (lastCharr == 1) ? word: "";
+              }
+              word = ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) ? word + numerals.ukr.MILL[0]:                      
+                  (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) ? word + numerals.ukr.MILL[2]:
+                  (lastCharr == 2) ? word:
+                  (lastCharr == 1) ? word + numerals.ukr.MILL[lastCharr]: ""; 
+                  return word;
+            }
+            var billFunc = function (number){
+              if (lastCharr > 20) {
+                lastCharr = Math.floor(number / ONE_BILLION) % 10;
+                word = (lastCharr > 4 || lastCharr == 0) ? word:                    
+                  (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) ? word:
+                  (lastCharr == 2) ? word:
+                  (lastCharr == 1) ? word: "";
+              }
+              word = ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) ? word + numerals.ukr.BILL[0]:                      
+                  (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) ? word + numerals.ukr.BILL[2]:
+                  (lastCharr == 2) ? word:
+                  (lastCharr == 1) ? word + numerals.ukr.BILL[lastCharr]: ""; 
+                  return word;
+            }
+            var trillFunc = function (number){
+              if (lastCharr > 20) {
+                lastCharr = Math.floor(number / ONE_TRILLION) % 10;
+                word = (lastCharr > 4 || lastCharr == 0) ? word:                    
+                  (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) ? word:
+                  (lastCharr == 2) ? word:
+                  (lastCharr == 1) ? word: "";
+              }
+              word = ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) ? word + numerals.ukr.TRILL[0]:                      
+                  (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) ? word + numerals.ukr.TRILL[2]:
+                  (lastCharr == 2) ? word:
+                  (lastCharr == 1) ? word + numerals.ukr.TRILL[lastCharr]: ""; 
+                  return word;
+            }
 
             // We’re done
             if (number === 0) {
-              return !words ? "нуль" : words.join(" ").replace(/,$/, "");
+              return !words ? numerals.ukr.LESS_THAN_TWENTY[0] : words.join(" ").replace(/,$/, "");
             }
             if (number >= ONE_THOUSAND && number < ONE_MILLION) {
             }
@@ -106,118 +201,51 @@
               words.push("мінус");
               number = Math.abs(number);
             }
-            if (number < 20) {
-              remainder = 0;
-              word = LESS_THAN_TWENTY[number];
-            } else if (number < ONE_HUNDRED) {
+            if (number < 20) { 
+              remainder = 0;  
+              word = (number == 2) ? numerals.ukr.EXEPT[number]:
+                (number == 1) ? numerals.ukr.EXEPT[number]:
+                numerals.ukr.LESS_THAN_TWENTY[number];
+            }else if (number < ONE_HUNDRED) {
               remainder = number % TEN;
-              word = TENTHS_LESS_THAN_HUNDRED[Math.floor(number / TEN)];
-              if (remainder) {
-                word += " " + LESS_THAN_TWENTY[remainder];
-                remainder = 0;
-              }
+              word = numerals.ukr.TENTHS_LESS_THAN_HUNDRED[Math.floor(number / TEN)];
+              word = (remainder == 2) ? word + " " + numerals.ukr.EXEPT[remainder]:
+                (remainder == 1) ? word + " " + numerals.ukr.EXEPT[remainder]:
+                word + " " + numerals.ukr.LESS_THAN_TWENTY[remainder];
+              remainder = 0;
             } else if (number < ONE_THOUSAND) {
               remainder = number % ONE_HUNDRED;
-              word = TENTHS_LESS_THAN_THOUSAND[Math.floor(number / ONE_HUNDRED)];
+              word = numerals.ukr.TENTHS_LESS_THAN_THOUSAND[Math.floor(number / ONE_HUNDRED)];
               if (word < ONE_HUNDRED) {
                 reremainder = number % TEN;
-                reword += " " + LESS_THAN_TWENTY[reremainder] + " " + TENTHS_LESS_THAN_THOUSAND[remainder];
+                reword += " " + numerals.ukr.LESS_THAN_TWENTY[reremainder] + " " + numerals.ukr.TENTHS_LESS_THAN_THOUSAND[remainder];
                 remainder = 0;
               }
-            } else if (number < ONE_MILLION) {
+            } 
+            else if (number < ONE_MILLION) {
               remainder = number % ONE_THOUSAND;
               word = generateWords(Math.floor(number / ONE_THOUSAND));
               var numLength = Math.floor(number / ONE_THOUSAND).toString().length;
-              var lastCharr;
+              
               if (numLength == 3) {
                 lastCharr = Math.floor(number / ONE_THOUSAND) % 100;
-                if (lastCharr > 20) {
-                  lastCharr = Math.floor(number / ONE_THOUSAND) % 10;
-                  if (lastCharr > 4 || lastCharr == 0) {
-                    word = word + " тисяч ";
-                  } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                    if (lastCharr == 2) {
-                      word = "дві";
-                    }
-                    word = word + " тисячі ";
-                  } else if (lastCharr == 1) {
-                    word = "одна" + " тисяча "; // тут меняем один на одна
-                  }
-                } else if ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) {
-                  word = word + " тисяч ";
-                } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                  if (lastCharr == 2) {
-                    word = "дві";
-                  }
-                  word = word + " тисячі ";
-                } else if (lastCharr == 1) {
-                  word = "одна" + " тисяча "; // тут меняем один на одна
-                }
-              } else if (numLength <= 2) {
+                console.log(lastCharr);
+                word = thousFunc(number, ONE_THOUSAND);                
+              }else if (numLength <= 2) {
                 lastCharr = Math.floor(number / ONE_THOUSAND);
-                if (lastCharr > 20) {
-                  lastCharr = Math.floor(number / ONE_THOUSAND) % 10;
-                  if (lastCharr > 4 || lastCharr == 0) {
-                    word = word + " тисяч ";
-                  } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                    if (lastCharr == 2) {
-                      word = "дві";
-                    }
-                    word = word + " тисячі ";
-                  } else if (lastCharr == 1) {
-                    word = "одна" + " тисяча ";
-                  }
-                } else if ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) {
-                  word = word + " тисяч ";
-                } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                  if (lastCharr == 2) {
-                    word = "дві";
-                  }
-                  word = word + " тисячі ";
-                } else if (lastCharr == 1) {
-                  word = "одна" + " тисяча ";
-                }
+                word = thousFunc(number, ONE_THOUSAND);  
               }
             } else if (number < ONE_BILLION) {
               remainder = number % ONE_MILLION;
               word = generateWords(Math.floor(number / ONE_MILLION));
-              numLength = Math.floor(number / ONE_MILLION).toString().length;
+              numLength = Math.floor(number / ONE_MILLION).toString().length;              
+              
               if (numLength == 3) {
                 lastCharr = Math.floor(number / ONE_MILLION) % 100;
-                if (lastCharr > 20) {
-                  lastCharr = Math.floor(number / ONE_MILLION) % 10;
-                  if (lastCharr > 4 || lastCharr == 0) {
-                    word = word + " мільйонів ";
-                  } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                    word = word + " мільйона ";
-                  } else if (lastCharr == 1) {
-                    word = word + " мільйон ";
-                  }
-                } else if ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) {
-                  word = word + " мільйонів ";
-                } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                  word = word + " мільйона ";
-                } else if (lastCharr == 1) {
-                  word = word + " мільйон ";
-                }
-              } else if (numLength <= 2) {
+                word = millFunc(number); 
+              }else if (numLength <= 2) {
                 lastCharr = Math.floor(number / ONE_MILLION);
-                if (lastCharr > 20) {
-                  lastCharr = Math.floor(number / ONE_MILLION) % 10;
-                  if (lastCharr > 4 || lastCharr == 0) {
-                    word = word + " мільйонів ";
-                  } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                    word = word + " мільйона ";
-                  } else if (lastCharr == 1) {
-                    word = word + " мільйон ";
-                  }
-                } else if ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) {
-                  word = word + " мільйонів ";
-                } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                  word = word + " мільйона ";
-                } else if (lastCharr == 1) {
-                  word = word + " мільйон ";
-                }
+               word = millFunc(number); 
               }
             } else if (number < ONE_TRILLION) {
               remainder = number % ONE_BILLION;
@@ -225,40 +253,10 @@
               numLength = Math.floor(number / ONE_BILLION).toString().length;
               if (numLength == 3) {
                 lastCharr = Math.floor(number / ONE_BILLION) % 100;
-                if (lastCharr > 20) {
-                  lastCharr = Math.floor(number / ONE_BILLION) % 10;
-                  if (lastCharr > 4 || lastCharr == 0) {
-                    word = word + " мільярдів ";
-                  } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                    word = word + " мільярда ";
-                  } else if (lastCharr == 1) {
-                    word = word + " мільярд ";
-                  }
-                } else if ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) {
-                  word = word + " мільярдів ";
-                } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                  word = word + " мільярда ";
-                } else if (lastCharr == 1) {
-                  word = word + " мільярд ";
-                }
+                word = billFunc(number); 
               } else if (numLength <= 2) {
                 lastCharr = Math.floor(number / ONE_BILLION);
-                if (lastCharr > 20) {
-                  lastCharr = Math.floor(number / ONE_BILLION) % 10;
-                  if (lastCharr > 4 || lastCharr == 0) {
-                    word = word + " мільярдів ";
-                  } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                    word = word + " мільярда ";
-                  } else if (lastCharr == 1) {
-                    word = word + " мільярд ";
-                  }
-                } else if ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) {
-                  word = word + " мільярдів ";
-                } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                  word = word + " мільярда ";
-                } else if (lastCharr == 1) {
-                  word = word + " мільярд ";
-                }
+                word = billFunc(number); 
               }
             } else if (number < ONE_QUADRILLION) {
               remainder = number % ONE_TRILLION;
@@ -266,113 +264,49 @@
               numLength = Math.floor(number / ONE_TRILLION).toString().length;
               if (numLength == 3) {
                 lastCharr = Math.floor(number / ONE_TRILLION) % 100;
-                if (lastCharr > 20) {
-                  lastCharr = Math.floor(number / ONE_TRILLION) % 10;
-                  if (lastCharr > 4 || lastCharr == 0) {
-                    word = word + " трильйонів ";
-                  } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                    word = word + " трильйона ";
-                  } else if (lastCharr == 1) {
-                    word = word + " трильйон ";
-                  }
-                } else if ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) {
-                  word = word + " трильйонів ";
-                } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                  word = word + " трильйона ";
-                } else if (lastCharr == 1) {
-                  word = word + " трильйон ";
-                }
+                word = trillFunc(number); 
               } else if (numLength <= 2) {
                 lastCharr = Math.floor(number / ONE_TRILLION);
-                if (lastCharr > 20) {
-                  lastCharr = Math.floor(number / ONE_TRILLION) % 10;
-                  if (lastCharr > 4 || lastCharr == 0) {
-                    word = word + " трильйонів ";
-                  } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                    word = word + " трильйона ";
-                  } else if (lastCharr == 1) {
-                    word = word + " трильйон ";
-                  }
-                } else if ((lastCharr > 4 && lastCharr <= 20) || lastCharr == 0) {
-                  word = word + " трильйонів ";
-                } else if (lastCharr == 2 || lastCharr == 3 || lastCharr == 4) {
-                  word = word + " трильйона ";
-                } else if (lastCharr == 1) {
-                  word = word + " трильйон ";
-                }
+                word = trillFunc(number); 
               }
             }
 
             words.push(word);
             return generateWords(remainder, words);
           }
-
-          // Converts a number into ordinal words.
-
-          function toWordsOrdinal(number) {
-            var words = toWords(number);
-            return makeOrdinal(words);
-          }
+          
         } else if ($("#second").is(":checked")) {
           // English
-          var ENDS_WITH_DOUBLE_ZERO_PATTERN = /(hundred|thousand|(m|b|tr|quadr)illion)$/;
-          var ENDS_WITH_TEEN_PATTERN = /teen$/;
-          var ENDS_WITH_Y_PATTERN = /y$/;
-          var ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN = /(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)$/;
-          var ordinalLessThanThirteen = { zero: "zeroth", one: "first", two: "second", three: "third", four: "fourth", five: "fifth", six: "sixth", seven: "seventh", eight: "eighth", nine: "ninth", ten: "tenth", eleven: "eleventh", twelve: "twelfth" };
-
+          
           //  Converts a number-word into an ordinal number-word.
 
           function makeOrdinal(words) {
             // Ends with *00 (100, 1000, etc.) or *teen (13, 14, 15, 16, 17, 18, 19)
-            if (ENDS_WITH_DOUBLE_ZERO_PATTERN.test(words) || ENDS_WITH_TEEN_PATTERN.test(words)) {
+            if (VAR_FOR_CHANGING.eng.ENDS_WITH_DOUBLE_ZERO_PATTERN.test(words) || VAR_FOR_CHANGING.eng.ENDS_WITH_TEEN_PATTERN.test(words)) {
               return words + "th";
             }
             // Ends with *y (20, 30, 40, 50, 60, 70, 80, 90)
-            else if (ENDS_WITH_Y_PATTERN.test(words)) {
-              return words.replace(ENDS_WITH_Y_PATTERN, "ieth");
+            else if (VAR_FOR_CHANGING.eng.ENDS_WITH_Y_PATTERN.test(words)) {
+              return words.replace(VAR_FOR_CHANGING.eng.ENDS_WITH_Y_PATTERN, "ieth");
             }
             // Ends with one through twelve
-            else if (ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN.test(words)) {
-              return words.replace(ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN, replaceWithOrdinalVariant);
+            else if (VAR_FOR_CHANGING.eng.ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN.test(words)) {
+              return words.replace(VAR_FOR_CHANGING.eng.ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN, replaceWithOrdinalVariant);
             }
             return words;
           }
 
           function replaceWithOrdinalVariant(match, numberWord) {
-            return ordinalLessThanThirteen[numberWord];
-          }
-
-          var TEN = 10;
-          var ONE_HUNDRED = 100;
-          var ONE_THOUSAND = 1000;
-          var ONE_MILLION = 1000000;
-          var ONE_BILLION = 1000000000;
-          var ONE_TRILLION = 1000000000000;
-          var ONE_QUADRILLION = 1000000000000000;
-
-          var LESS_THAN_TWENTY = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-
-          var TENTHS_LESS_THAN_HUNDRED = ["zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
-
-          // Converts an integer into words.
-          // If number is decimal, the decimals will be removed.
-
-          function toWords(number, asOrdinal) {
-            var words;
-            var num = parseInt(number, 10);
-            words = generateWords(num);
-            return asOrdinal ? makeOrdinal(words) : words;
-          }
+            return VAR_FOR_CHANGING.eng.ordinalLess[numberWord];
+          }          
 
           function generateWords(number) {
-            var remainder,
-              word,
+            var remainder, word,
               words = arguments[1];
 
             // We’re done
             if (number === 0) {
-              return !words ? "zero" : words.join(" ").replace(/,$/, "");
+              return !words ? numerals.eng.LESS_THAN_TWENTY[0] : words.join(" ").replace(/,$/, "");
             }
             // First run
             if (!words) {
@@ -386,12 +320,12 @@
 
             if (number < 20) {
               remainder = 0;
-              word = LESS_THAN_TWENTY[number];
+              word = numerals.eng.LESS_THAN_TWENTY[number];
             } else if (number < ONE_HUNDRED) {
               remainder = number % TEN;
-              word = TENTHS_LESS_THAN_HUNDRED[Math.floor(number / TEN)];
+              word = numerals.eng.TENTHS_LESS_THAN_HUNDRED[Math.floor(number / TEN)];
               if (remainder) {
-                word += "-" + LESS_THAN_TWENTY[remainder];
+                word += "-" + numerals.eng.LESS_THAN_TWENTY[remainder];
                 remainder = 0;
               }
             } else if (number < ONE_THOUSAND) {
@@ -415,26 +349,18 @@
             return generateWords(remainder, words);
           }
 
-          // Converts a number into ordinal words.
-          function toWordsOrdinal(number) {
-            var words = toWords(number);
-            return makeOrdinal(words);
-          }
         } else {
           // Deutsche
-          var ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN1 = /(null|zwei|vier|fünf|sechs|neun|zehn|elf|zwölf|dreizehn|vierzehn|fünfzehn|sechzehn|siebzehn|achtzehn|neunzehn)$/;
-          var ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN = /(eins|drei|sieben|acht)$/;
-          var ordinalLessThanThirteen = { eins: "erste", drei: "dritte", sieben: "siebte", acht: "achte" };
-
+          
           //  Converts a number-word into an ordinal number-word.
 
           function makeOrdinal(words) {
             // exceptions 1, 3, 7, 8
-            if (ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN.test(words)) {
-              return words.replace(ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN, replaceWithOrdinalVariant);
+            if (VAR_FOR_CHANGING.det.ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN.test(words)) {
+              return words.replace(VAR_FOR_CHANGING.det.ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN, replaceWithOrdinalVariant);
             }
             // 2 ->  19
-            else if (ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN1.test(words)) {
+            else if (VAR_FOR_CHANGING.det.ENDS_WITH_TEEN_PATTERN.test(words)) {
               return words + "t";
               // all
             } else {
@@ -444,34 +370,7 @@
           }
 
           function replaceWithOrdinalVariant(match, numberWord) {
-            return ordinalLessThanThirteen[numberWord];
-          }
-
-          // Converts an integer into a string with an ordinal postfix.
-          // If number is decimal, the decimals will be removed.
-
-          var TEN = 10;
-          var ONE_HUNDRED = 100;
-          var ONE_THOUSAND = 1000;
-          var ONE_MILLION = 1000000;
-          var ONE_BILLION = 1000000000;
-          var ONE_TRILLION = 1000000000000;
-          var ONE_QUADRILLION = 1000000000000000;
-
-          var EXEPT = ["null", "ein", "eine"];
-
-          var LESS_THAN_TWENTY = ["null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"];
-
-          var TENTHS_LESS_THAN_HUNDRED = ["null", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"];
-
-          //  Converts an integer into words.
-          //  If number is decimal, the decimals will be removed.
-
-          function toWords(number, asOrdinal) {
-            var words;
-            var num = parseInt(number, 10);
-            words = generateWords(num);
-            return asOrdinal ? makeOrdinal(words) : words;
+            return VAR_FOR_CHANGING.det.ordinalLess[numberWord];
           }
 
           function generateWords(number) {
@@ -480,7 +379,7 @@
               words = arguments[1];
             // We’re done
             if (number === 0) {
-              return !words ? "null" : words.join(" ").replace(/,$/, "");
+              return !words ? numerals.det.LESS_THAN_TWENTY[0] : words.join(" ").replace(/,$/, "");
             }
             // First run
             if (!words) {
@@ -494,22 +393,29 @@
 
             if (number < 20) {
               remainder = 0;
-              word = LESS_THAN_TWENTY[number];
+              word = numerals.det.LESS_THAN_TWENTY[number];
             } else if (number < ONE_HUNDRED) {
               remainder = number % TEN;
-              word = TENTHS_LESS_THAN_HUNDRED[Math.floor(number / TEN)];
-              if (remainder == 1) {
-                word = EXEPT[remainder] + "und" + word;
-                remainder = 0;
-              } else if (remainder) {
-                word = LESS_THAN_TWENTY[remainder] + "und" + word;
-                remainder = 0;
-              }
+              word = numerals.det.TENTHS_LESS_THAN_HUNDRED[Math.floor(number / TEN)];
+              word = (remainder == 1) ? numerals.det.EXEPT[remainder] + "und" + word:
+              (remainder) ? numerals.det.LESS_THAN_TWENTY[remainder] + "und" + word: "";
+              remainder = 0;
+              
+              // if (remainder == 1) {
+              //   word = numerals.det.EXEPT[remainder] + "und" + word;
+              //   remainder = 0;
+              // } else if (remainder) {
+              //   word = numerals.det.LESS_THAN_TWENTY[remainder] + "und" + word;
+              //   remainder = 0;
+              // }
             } else if (number < ONE_THOUSAND) {
               remainder = number % ONE_HUNDRED;
               var index = Math.floor(number / ONE_HUNDRED);
+              // word = (index == 1) ? numerals.det.EXEPT[index] + "hundert":
+
+
               if (index == 1) {
-                word = EXEPT[index] + "hundert";
+                word = numerals.det.EXEPT[index] + "hundert";
                 index = 0;
               } else {
                 word = generateWords(Math.floor(number / ONE_HUNDRED)) + "hundert";
@@ -519,7 +425,7 @@
               remainder = number % ONE_THOUSAND;
               index = Math.floor(number / ONE_THOUSAND);
               if (index == 1) {
-                word = EXEPT[index] + "tausend";
+                word = numerals.det.EXEPT[index] + "tausend";
                 index = 0;
               } else {
                 word = generateWords(Math.floor(number / ONE_THOUSAND)) + "tausend";
@@ -529,7 +435,7 @@
               remainder = number % ONE_MILLION;
               index = Math.floor(number / ONE_MILLION);
               if (index == 1) {
-                word = EXEPT[index + 1] + " Million ";
+                word = numerals.det.EXEPT[index + 1] + " Million ";
                 index = 0;
               } else {
                 word = generateWords(Math.floor(number / ONE_MILLION)) + " Million ";
@@ -539,7 +445,7 @@
               remainder = number % ONE_BILLION;
               index = Math.floor(number / ONE_BILLION);
               if (index == 1) {
-                word = EXEPT[index + 1] + " Milliarden ";
+                word = numerals.det.EXEPT[index + 1] + " Milliarden ";
                 index = 0;
               } else {
                 word = generateWords(Math.floor(number / ONE_BILLION)) + " Milliarden ";
@@ -549,7 +455,7 @@
               remainder = number % ONE_TRILLION;
               index = Math.floor(number / ONE_TRILLION);
               if (index == 1) {
-                word = EXEPT[index + 1] + " Billionen ";
+                word = numerals.det.EXEPT[index + 1] + " Billionen ";
                 index = 0;
               } else {
                 word = generateWords(Math.floor(number / ONE_TRILLION)) + " Billionen ";
@@ -561,13 +467,10 @@
 
             return generateWords(remainder, words);
           }
-
-          //  Converts a number into ordinal words.
-
-          function toWordsOrdinal(number) {
-            var words = toWords(number);
-            return makeOrdinal(words);
-          }
-		}
+    }
+    function toWordsOrdinal(number) {
+      var words = toWords(number);
+      return makeOrdinal(words);
+    }
 	});
 });
