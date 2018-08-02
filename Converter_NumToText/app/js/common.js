@@ -1,8 +1,3 @@
-    // protocol Language {
-    // var LESS_THAN_TWENTY: [String]
-    // var TENTHS_LESS_THAN_HUNDRED: [String]
-    // }
-
 	$(document).ready(function() {
     // СТАРТ
 // /////////////////////////variabels
@@ -27,12 +22,14 @@
       },
       eng:{
         LESS_THAN_TWENTY: ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"],
-        TENTHS_LESS_THAN_HUNDRED: ["zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+        TENTHS_LESS_THAN_HUNDRED: ["zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"],
+        BIGEST_NUM: [" hundred", " thousand ", " million ", " billion ", " trillion "]
       },
       det:{
         EXEPT: ["null", "ein", "eine"],
         LESS_THAN_TWENTY: ["null", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"],
-        TENTHS_LESS_THAN_HUNDRED: ["null", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"]
+        TENTHS_LESS_THAN_HUNDRED: ["null", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"],
+        BIGEST_NUM: [ "hundert", "tausend", " Million ", " Milliarden ", " Billionen "]
       }
     };
 
@@ -125,7 +122,7 @@
           }
 
             function generateWords(number) {
-            var remainder, word, lastCharr, 
+            var remainder, word, lastCharr, index
               words = arguments[1];
 
             var thousFunc = function (number){
@@ -274,9 +271,9 @@
             words.push(word);
             return generateWords(remainder, words);
           }
-          
+
+ // ////////////////////////   English   ////////////////////////////////    
         } else if ($("#second").is(":checked")) {
-          // English
           
           //  Converts a number-word into an ordinal number-word.
 
@@ -330,30 +327,29 @@
               }
             } else if (number < ONE_THOUSAND) {
               remainder = number % ONE_HUNDRED;
-              word = generateWords(Math.floor(number / ONE_HUNDRED)) + " hundred";
+              word = generateWords(Math.floor(number / ONE_HUNDRED)) + numerals.eng.BIGEST_NUM[0];
             } else if (number < ONE_MILLION) {
               remainder = number % ONE_THOUSAND;
-              word = generateWords(Math.floor(number / ONE_THOUSAND)) + " thousand ";
+              word = generateWords(Math.floor(number / ONE_THOUSAND)) + numerals.eng.BIGEST_NUM[1];
             } else if (number < ONE_BILLION) {
               remainder = number % ONE_MILLION;
-              word = generateWords(Math.floor(number / ONE_MILLION)) + " million ";
+              word = generateWords(Math.floor(number / ONE_MILLION)) + numerals.eng.BIGEST_NUM[2];
             } else if (number < ONE_TRILLION) {
               remainder = number % ONE_BILLION;
-              word = generateWords(Math.floor(number / ONE_BILLION)) + " billion ";
+              word = generateWords(Math.floor(number / ONE_BILLION)) + numerals.eng.BIGEST_NUM[3];
             } else if (number < ONE_QUADRILLION) {
               remainder = number % ONE_TRILLION;
-              word = generateWords(Math.floor(number / ONE_TRILLION)) + " trillion ";
+              word = generateWords(Math.floor(number / ONE_TRILLION)) + numerals.eng.BIGEST_NUM[4];
             }
 
             words.push(word);
             return generateWords(remainder, words);
           }
 
+// ////////////////////////   Deutsche   //////////////////////////////// 
         } else {
-          // Deutsche
           
           //  Converts a number-word into an ordinal number-word.
-
           function makeOrdinal(words) {
             // exceptions 1, 3, 7, 8
             if (VAR_FOR_CHANGING.det.ENDS_WITH_ZERO_THROUGH_TWELVE_PATTERN.test(words)) {
@@ -400,71 +396,33 @@
               word = (remainder == 1) ? numerals.det.EXEPT[remainder] + "und" + word:
               (remainder) ? numerals.det.LESS_THAN_TWENTY[remainder] + "und" + word: "";
               remainder = 0;
-              
-              // if (remainder == 1) {
-              //   word = numerals.det.EXEPT[remainder] + "und" + word;
-              //   remainder = 0;
-              // } else if (remainder) {
-              //   word = numerals.det.LESS_THAN_TWENTY[remainder] + "und" + word;
-              //   remainder = 0;
-              // }
             } else if (number < ONE_THOUSAND) {
               remainder = number % ONE_HUNDRED;
-              var index = Math.floor(number / ONE_HUNDRED);
-              // word = (index == 1) ? numerals.det.EXEPT[index] + "hundert":
-
-
-              if (index == 1) {
-                word = numerals.det.EXEPT[index] + "hundert";
-                index = 0;
-              } else {
-                word = generateWords(Math.floor(number / ONE_HUNDRED)) + "hundert";
-                index = 0;
-              }
+              index = Math.floor(number / ONE_HUNDRED);
+              word = (index == 1) ? numerals.det.EXEPT[index] + numerals.det.BIGEST_NUM[0] : generateWords(Math.floor(number / ONE_HUNDRED)) + numerals.det.BIGEST_NUM[0];
+              index = 0;
             } else if (number < ONE_MILLION) {
               remainder = number % ONE_THOUSAND;
               index = Math.floor(number / ONE_THOUSAND);
-              if (index == 1) {
-                word = numerals.det.EXEPT[index] + "tausend";
-                index = 0;
-              } else {
-                word = generateWords(Math.floor(number / ONE_THOUSAND)) + "tausend";
-                index = 0;
-              }
+              word = index == 1 ? numerals.det.EXEPT[index] + numerals.det.BIGEST_NUM[1] : generateWords(Math.floor(number / ONE_THOUSAND)) + numerals.det.BIGEST_NUM[1];
+              index = 0;              
             } else if (number < ONE_BILLION) {
               remainder = number % ONE_MILLION;
               index = Math.floor(number / ONE_MILLION);
-              if (index == 1) {
-                word = numerals.det.EXEPT[index + 1] + " Million ";
-                index = 0;
-              } else {
-                word = generateWords(Math.floor(number / ONE_MILLION)) + " Million ";
-                index = 0;
-              }
+              word = index == 1 ? numerals.det.EXEPT[index] + numerals.det.BIGEST_NUM[2] : generateWords(Math.floor(number / ONE_MILLION)) + numerals.det.BIGEST_NUM[2];
+              index = 0; 
             } else if (number < ONE_TRILLION) {
               remainder = number % ONE_BILLION;
               index = Math.floor(number / ONE_BILLION);
-              if (index == 1) {
-                word = numerals.det.EXEPT[index + 1] + " Milliarden ";
-                index = 0;
-              } else {
-                word = generateWords(Math.floor(number / ONE_BILLION)) + " Milliarden ";
-                index = 0;
-              }
+              word = index == 1 ? numerals.det.EXEPT[index] + numerals.det.BIGEST_NUM[3] : generateWords(Math.floor(number / ONE_BILLION)) + numerals.det.BIGEST_NUM[3];
+              index = 0; 
             } else if (number < ONE_QUADRILLION) {
               remainder = number % ONE_TRILLION;
               index = Math.floor(number / ONE_TRILLION);
-              if (index == 1) {
-                word = numerals.det.EXEPT[index + 1] + " Billionen ";
-                index = 0;
-              } else {
-                word = generateWords(Math.floor(number / ONE_TRILLION)) + " Billionen ";
-                index = 0;
-              }
+               word = index == 1 ? numerals.det.EXEPT[index] + numerals.det.BIGEST_NUM[4] : generateWords(Math.floor(number / ONE_BILLION)) + numerals.det.BIGEST_NUM[4];
+               index = 0; 
             }
-
             words.push(word);
-
             return generateWords(remainder, words);
           }
     }
