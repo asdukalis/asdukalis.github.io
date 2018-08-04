@@ -90,8 +90,8 @@ $(document).ready(function() {
       var num = parseInt(number, 10);
       words = generateWords(num);
       return asOrdinal ? makeOrdinal(words) : words;
-    }
-    // /////////////////////////////////////////////////////Украинский /////////////////////////////////////////////////////
+		}
+		
     if ($("#first").is(":checked")) {
 
       // Преобразует числовое слово в порядковое числовое слово
@@ -117,10 +117,7 @@ $(document).ready(function() {
       }
 
       function generateWords(number) {
-        var remainder,
-          word,
-          words = arguments[1],
-          lastCharr;
+        var remainder, word, words = arguments[1], lastCharr;
         var Ukr = ukr.NUM;
 
         function bundlingNumbers(number, razryad, chislo) {
@@ -152,40 +149,20 @@ $(document).ready(function() {
             bundling();
           }
           return word;
+        }				
+        // We’re done
+        if (number === 0) {
+          return !words ? Ukr.EXEPT[0] : words.join(" ").replace(/,$/, "");
         }
-
-				ANDREY(number, Ukr.EXEPT, words);
-				console.log(ANDREY());
-				function ANDREY(number, MY_NULL, words, minus) {
-						// We’re done
-					if (number === 0) {
-						return !words ? MY_NULL[0] : words .join(" ").replace(/,$/, "");
-					}
-					if (!words) {
-						// First run
-						words = [];
-					}
-					// If negative, prepend “minus”
-					if (number < 0) {
-						words.push(minus);
-						number = Math.abs(number);
-					}
-					return words, number;
+        if (!words) {
+          // First run
+          words = [];
+        }
+        // If negative, prepend “minus”
+        if (number < 0) {
+          words.push("мінус");
+          number = Math.abs(number);
 				}
-
-        // // We’re done
-        // if (number === 0) {
-        //   return !words ? Ukr.EXEPT[0] : words.join(" ").replace(/,$/, "");
-        // }
-        // if (!words) {
-        //   // First run
-        //   words = [];
-        // }
-        // // If negative, prepend “minus”
-        // if (number < 0) {
-        //   words.push("мінус");
-        //   number = Math.abs(number);
-				// }
 
         if (number < 20) {
           remainder = 0;
@@ -214,7 +191,6 @@ $(document).ready(function() {
         return generateWords(remainder, words);
       }
 
-      // ////////////////////////   English   ////////////////////////////////
     } else if ($("#second").is(":checked")) {
 
       //  Converts a number-word into an ordinal number-word.
@@ -288,7 +264,6 @@ $(document).ready(function() {
         return generateWords(remainder, words);
       }
 
-      // // ////////////////////////   Deutsche   ////////////////////////////////
     } else {
       //  Converts a number-word into an ordinal number-word.
       function makeOrdinal(words) {
