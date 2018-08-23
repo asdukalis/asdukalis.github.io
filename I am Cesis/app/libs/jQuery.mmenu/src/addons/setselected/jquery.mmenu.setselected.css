@@ -1,0 +1,70 @@
+/*
+Error: Invalid CSS after "...conbarSizes		: ": expected expression (e.g. 1px, bold), was "[ 40, 60, 80 ] ..."
+        on line 67 of D:/Lessons/Web/VIDEO/__Test_job/18.08.2018/I_am_Cesis/app/libs/jQuery.mmenu/src/_variables.scss
+        from line 9 of D:\Lessons\Web\VIDEO\__Test_job\18.08.2018\I_am_Cesis\app\libs\jQuery.mmenu\src\addons\setselected\jquery.mmenu.setselected.scss
+
+62: $mm_dropdownTipX		: 20px !default;
+63: $mm_dropdownTipY		: 10px !default;
+64: $mm_opt_iconbar			: true !default;
+65: $mm_opt_iconbar_tabs	: $mm_opt_iconbar !default;
+66: 
+67: $mm_iconbarSizes		: [ 40, 60, 80 ] !default;
+68: $mm_opt_iconpanels			: true !default;
+69: $mm_opt_iconpanels_blocker	: $mm_opt_iconpanels !default;
+70: 
+71: $mm_iconpanelSizes			: [ 40, 60, 80 ] !default;
+72: 
+
+Backtrace:
+D:/Lessons/Web/VIDEO/__Test_job/18.08.2018/I_am_Cesis/app/libs/jQuery.mmenu/src/_variables.scss:67
+D:\Lessons\Web\VIDEO\__Test_job\18.08.2018\I_am_Cesis\app\libs\jQuery.mmenu\src\addons\setselected\jquery.mmenu.setselected.scss:9
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1165:in `expected'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/lexer.rb:220:in `expected!'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/parser.rb:573:in `assert_expr'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/script/parser.rb:62:in `parse'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:1027:in `sass_script'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:607:in `variable'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:660:in `block_child'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:653:in `block_contents'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:117:in `stylesheet'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/scss/parser.rb:42:in `parse'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:393:in `_to_tree'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:299:in `to_tree'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:313:in `block in visit_import'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:88:in `block in with_import'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:88:in `with_import'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:312:in `visit_import'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:396:in `run'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/rubygems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/bin/sass:18:in `load'
+D:/Lessons/Web/Programs/KoalaPortable/App/Koala/bin/sass:18:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...conbarSizes		: \": expected expression (e.g. 1px, bold), was \"[ 40, 60, 80 ] ...\"\A         on line 67 of D:/Lessons/Web/VIDEO/__Test_job/18.08.2018/I_am_Cesis/app/libs/jQuery.mmenu/src/_variables.scss\A         from line 9 of D:\Lessons\Web\VIDEO\__Test_job\18.08.2018\I_am_Cesis\app\libs\jQuery.mmenu\src\addons\setselected\jquery.mmenu.setselected.scss\A \A 62: $mm_dropdownTipX		: 20px !default;\A 63: $mm_dropdownTipY		: 10px !default;\A 64: $mm_opt_iconbar			: true !default;\A 65: $mm_opt_iconbar_tabs	: $mm_opt_iconbar !default;\A 66: \A 67: $mm_iconbarSizes		: [ 40, 60, 80 ] !default;\A 68: $mm_opt_iconpanels			: true !default;\A 69: $mm_opt_iconpanels_blocker	: $mm_opt_iconpanels !default;\A 70: \A 71: $mm_iconpanelSizes			: [ 40, 60, 80 ] !default;\A 72: "; }
