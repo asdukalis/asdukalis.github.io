@@ -1,0 +1,453 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1920px)
+  .s_designe
+    &_text
+      margin: 0 150px
+      .h2
+        font-size: 65px
+
+@media only screen and (max-width : 1765px)
+  .s_designe
+    &_text
+      margin: 0 100px
+      .h2
+        font-size: 50px
+    &_right      
+      &_image
+        min-height: 350px
+        .wrapper_decor
+          right: 350px 
+          .decor_text
+            font-size: 70px
+            margin: 0 20px
+          img
+            width: 90px
+        img
+        .square1
+          top: 50px
+        .square2
+          top: 160px
+    &_left
+      &_image
+        .wrapper_decor
+          right: 24%
+        .square1
+          top: 50px
+          right: 0px
+          width: 110px
+          height: 70px
+        .square2
+          top: 120px
+          right: 110px
+          width: 93px
+          height: 53px
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+  .s_designe
+    &_text
+      margin: 0 50px
+      .h2
+        font-size: 50px
+    &_right
+      &_image
+        img
+          width: 100%
+    &_left
+      &_image
+        .wrapper_decor
+          right: 24%
+  #Portfolio
+    .gallery_item
+      &_text
+        left: 20px
+        bottom: 20px
+        .h5
+          line-height: 1
+      &:hover
+        .gallery_item_text
+          .h5
+            font-size: 24px
+          p
+            font-size: 18px
+  .s_plans_wrapper
+    margin: 0
+  .s_form
+    margin: 50px 10px
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+  .main_head
+    margin-bottom: 50px
+  .s_designe
+    &_text
+      margin: 0 50px
+      p
+        margin: 30px 0
+      .h2
+        font-size: 40px
+      .btn 
+        margin: 0 auto 30px
+      .light_text
+        p
+          mafrin: 20px 0
+    &_right
+      grid-template-columns: 1fr 
+      margin-bottom: 50px
+      &_image
+        min-height: 450px
+    &_left
+      grid-template-columns: 1fr
+      grid-auto-flow: row
+      margin-bottom: 50px
+      &_image
+        grid-column: 1
+        grid-row: 2
+        min-height: 450px
+        .wrapper_decor
+          right: 27%
+          .angle
+            margin: 40px 40px 40px
+
+  #Portfolio
+    margin-bottom: 50px
+    .nav_gallery
+      ul
+        li
+          margin-left: 20px
+    .gallery
+      margin: 50px
+      grid-gap: 10px
+      &_item
+        &_text
+          .h5
+            font-size: 16px
+        &:hover
+          .gallery_item_text
+            .h5
+              font-size: 24px
+            p
+              font-size: 18px
+
+  .wrapper_content .h1
+    font-size: 100px
+  .s_plans
+    padding: 50px 10px
+    .h2
+      font-size: 60px
+    p
+      font-size: 16px
+      margin-bottom: 50px
+    .h5
+      font-size: 18px
+      margin: 15px 0 20px
+    .btn
+      padding: 10px 23px
+      margin-bottom: 30px
+
+  .s_form
+    margin: 50px 10px
+    &_top_text
+      width: auto
+    &_bottom_address
+      .h5
+        font-size: 25px
+        margin-bottom: 20px
+      p
+        font-size: 14px
+
+  .footer_soc_top
+    margin: 30px 0
+  .footer_inf
+    margin: 0 50px
+    &_logo
+      margin-right: 5px
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+  .mnu
+    ul
+      margin-top: 70px
+
+  .s_designe
+    &_right
+      margin: 0 0 50px 0
+      &_image
+    &_left
+      margin: 0 0 00px 0
+      &_image
+        margin: 0 0 50px 0
+      .wrapper_decor
+        .angle
+          right: 21%
+      .square1
+        top: 20px
+        right: 0px
+        width: 80px
+        height: 50px
+      .square2
+        top: 70px
+        right: 80px
+        width: 40px
+        height: 30px
+        .line1, .line2
+          display: none
+      .square3
+        bottom: 100px
+        right: 100px
+        width: 50px
+        height: 50px
+      .square4
+        bottom: 0px
+        right: 0px
+        width: 50px
+        height: 50px  
+      .square5
+        bottom: 25px
+        right: 25px
+        width: 50px
+        height: 50px  
+
+  #Portfolio
+    .nav_gallery
+      text-align: center
+      ul
+        margin: 0 10px
+        li
+          margin-left: 20px
+    .gallery
+      margin: 25px
+      grid-gap: 5px
+      &_item
+        &_text
+          .h5
+            font-size: 16px
+          p 
+            font-size: 14px
+        &:hover
+          .gallery_item_text
+            .h5
+              font-size: 18px
+            p
+              font-size: 16px
+  .wrapper_content
+    .h1
+      font-size: 80px
+    p
+      font-size: 20px
+
+  .s_plans
+    &_wrapper
+      grid-template-columns: 1fr
+
+  .s_form
+    margin: 50px 10px
+    .h2
+      font-size: 40px
+    p
+      margin: 20px 0
+    .light_text
+      margin: 20px 0
+    &_bottom_address
+      .h5
+        font-size: 18px
+      p
+        font-size: 12px
+        margin: 0
+
+  .footer_soc_top
+    margin: 50px 0
+    ul
+      grid-template-columns: repeat(3, 1fr)
+      li
+        border: 1px solid $white
+        a
+          padding: 43px 0
+        span
+          bottom: 10px
+  .footer_inf
+    grid-template-columns: 1fr
+    &_logo
+      margin-bottom: 20px
+  .your_email .h3
+    margin-bottom: 20px
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+  .mnu 
+    ul
+      li
+        margin-bottom: 18px
+  .s_designe
+    &_text
+      text-align: center
+      margin: 0 10px
+      p
+        margin: 30px 0
+      .h2
+        font-size: 40px
+    &_right
+      &_image
+        min-height: 350px
+        .wrapper_decor
+          right: 190px 
+          .decor_text
+            font-size: 40px
+            margin: 0 20px
+          img
+            width: 90px
+        .square1
+          top: 20px
+          right: 0px
+          width: 90px
+          height: 50px
+          .line1
+            display: none
+          .line2
+            display: none
+        .square2
+          top: 70px
+          right: 90px
+          width: 40px
+          height: 30px
+        .square3
+          bottom: 50px
+          right: 50px
+          width: 50px
+          height: 50px
+        .square4
+          bottom: 0px
+          right: 0px
+          width: 50px
+          height: 50px
+    &_left
+      margin: 0 
+      &_image
+        .wrapper_decor
+          right: 13%
+          z-index: 49
+      .square1
+        top: 20px
+        right: 0px
+        width: 80px
+        height: 50px
+      .square2
+        top: 70px
+        right: 80px
+        width: 40px
+        height: 30px
+        z-index: 48
+        .line1, .line2
+          display: none
+      .square3
+        bottom: 70px
+        right: 50px
+        width: 50px
+        height: 50px
+        z-index: 48
+      .square4
+        bottom: 0px
+        right: 0px
+        width: 50px
+        height: 50px  
+      .square5
+        bottom: 25px
+        right: 25px
+        width: 50px
+        height: 50px  
+  #Portfolio
+    .nav_gullery
+      margin-bottom: 20px
+    .gallery
+      margin: 5px
+      grid-gap: 5px
+      margin-bottom: 25px
+      &_item
+        &_text
+          left: 5px
+          bottom: 5px
+        &_text
+          .h5
+            font-size: 14px
+          p 
+            font-size: 12px
+        &:hover
+          .gallery_item_text
+            .h5
+              font-size: 14px
+            p
+              font-size: 12px
+
+  .wrapper_content
+    .h1
+      font-size: 50px
+      margin-top: 100px
+    p
+      font-size: 14px
+  .angle_down
+    margin-top: 150px
+  .s_plans
+    padding: 50px 20px
+    .h2
+      font-size: 30px
+    p
+      font-size: 16px
+      margin-bottom: 50px
+    &_wrapper_container ul
+      margin-bottom: 20px
+  .s_form
+    &_top_inf p .input_style
+      margin-bottom: 20px
+    .btn
+      display: block
+    &_bottom
+      grid-template-columns: 1fr
+      text-align: center
+      &_address
+        p:last-child
+          margin-bottom: 30px
+    
+  .footer_soc_top 
+    ul
+      grid-template-columns: repeat(2, 1fr)
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+  /**/
+  
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+  /**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+  /**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+  /**/
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+  /**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+  /**/
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1920px)
+  /**/
+
